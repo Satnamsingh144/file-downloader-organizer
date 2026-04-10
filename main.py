@@ -27,7 +27,7 @@ def is_valid_url(url):
 
 
 def main():
-    urls = input("Enter URLs (comma separated): ").split(",")
+    urls = input("Enterr URLs (comma separated): ").split(",")
 
     valid_urls = []
     invalid_urls = []
