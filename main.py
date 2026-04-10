@@ -1,6 +1,7 @@
 import requests
 import os
 from urllib.parse import urlparse
+import threading
 
 def download_file(url, folder="downloads"):
     try:
@@ -8,7 +9,10 @@ def download_file(url, folder="downloads"):
 
         file_name = url.split("/")[-1] or "file"
         local_path = os.path.join(folder, file_name)
-
+        i=1
+        if file_name in os.listdir(folder):
+            local_path=os.path.join(folder,f"{file_name} {i}")
+            i +=1
         response = requests.get(url)
         response.raise_for_status()
 
@@ -27,20 +31,24 @@ def is_valid_url(url):
 
 
 def main():
-    urls = input("Enterr URLs (comma separated): ").split(",")
-
+    urls = input("Enter URLs (comma separated): ").split(",")
+    
     valid_urls = []
     invalid_urls = []
-
+    threads=[]
     for url in urls:
         url = url.strip()
 
         if not is_valid_url(url):
             invalid_urls.append(url)
             continue
-
+        
         valid_urls.append(url)
-        download_file(url)
+        t=threading.Thread(target=download_file,args=(url,))
+        threads.append(t)
+        t.start()
+    for t in threads:
+        t.join()    
 
     print("\nInvalid URLs:")
     for bad_url in invalid_urls:
