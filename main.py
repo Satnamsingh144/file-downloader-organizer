@@ -10,8 +10,10 @@ def download_file(url, folder="downloads"):
         file_name = url.split("/")[-1] or "file"
         local_path = os.path.join(folder, file_name)
         i=1
-        if file_name in os.listdir(folder):
-            local_path=os.path.join(folder,f"{file_name} {i}")
+        name,ext = os.path.splitext(file_name)
+        while os.path.exists(local_path):
+            file_name=f"{name}({i}){ext}"
+            local_path=os.path.join(folder,file_name)
             i +=1
         response = requests.get(url)
         response.raise_for_status()
