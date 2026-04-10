@@ -1,59 +1,83 @@
-# Smart File Downloader & Organizer
+# 🚀 Smart File Downloader & Organizer
 
-A Python-based automation tool that downloads files from URLs and saves them into a structured folder.
-
----
-
-🚀 Features
-
-- Download files from URLs
-- Automatically save files to a folder
-- Organize files into categories (images, videos, documents, etc.)
-- Easy to use and customizable
+A powerful Python automation tool that downloads multiple files from URLs and automatically organizes them into structured folders based on file types.
 
 ---
 
-🛠️ Technologies Used
+## ✨ Features
+
+- 📥 Download multiple files from URLs
+- ⚡ Multithreaded downloads for faster performance
+- 📂 Automatic file categorization (images, videos, documents, etc.)
+- 🔁 Duplicate-safe file naming (file(1), file(2), etc.)
+- ✅ URL validation and error handling
+- 🧹 Clean and user-friendly console output
+
+---
+
+## 🛠️ Technologies Used
 
 - Python
 - requests
 - os
-- shutil
+- threading
+- urllib.parse
 
 ---
 
-▶️ How to Run
+## ▶️ How to Run
 
 1. Clone the repository:
-   git clone https://github.com/Satnamsingh144/smart-file-downloader-organizer.git
+   ```bash
+   git clone https://github.com/Satnamsingh144/file-downloader-organizer.git
 
 2. Navigate to the project folder:
-   cd smart-file-downloader-organizer
+   cd file-downloader-organizer
 
 3. Install dependencies:
    pip install requests
 
 4. Run the script:
-   python main.py
+  python main.py
 
 ---
 
 📌 Example
 
 Enter file URL:
-https://example.com/file.pdf
+https://example.com/file1.png, https://example.com/file2.pdf
 
 Output:
-File downloaded and organized successfully.
+📥 Downloading: file1.png
+✅ Saved: file1.png → images
 
+📥 Downloading: file2.pdf
+✅ Saved: file2.pdf → documents
+
+========== SUMMARY ==========
+✔ Valid URLs: 2
+❌ Invalid URLs: 0
+
+🎉 All downloads completed!
+
+📂 Folder Structure:
+downloads/
+│
+├── images/
+├── videos/
+├── documents/
+├── audio/
+├── compressed/
+├── code/
+└── others/
 ---
 
 🔮 Future Improvements
 
-- Multi-file downloading
-- Multithreading support
-- GUI interface
-- Progress tracking
+-GUI interface (desktop application)
+-Download progress bar
+-Pause/Resume downloads
+-Drag & drop supportg
 
 ---
 
