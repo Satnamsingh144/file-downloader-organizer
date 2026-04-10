@@ -39,7 +39,7 @@ def download_file(url, folder="downloads"):
         with open(file_path, "wb") as f:
             f.write(response.content)
 
-        print(f"✅ Downloaded: {file_name}")
+        print(f"✅ Downloaded: {file_name} → {file_type}")
 
     except Exception as e:
         print(f"❌ Failed to download {url} | Error: {e}")
